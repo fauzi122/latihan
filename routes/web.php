@@ -53,6 +53,16 @@ Route::group(['middleware' => 'cekadmin'], function () {
         Route::put('/prasarana/{id}', 'update')->name('prasarana.update');
         Route::delete('/prasarana/{id}', 'destroy')->name('prasarana.destroy');
     });
+
+    Route::controller(BukuController::class)->group(function () {
+        Route::get('/books', 'index')->name('books');
+        Route::get('/books/create', 'create')->name('books.create');
+        Route::post('/books','store')->name('books.store');
+        Route::get('/books/{id}','show')->name('books.show');
+        Route::get('/books/{id}/edit', 'edit')->name('books.edit');
+        Route::put('/books/{book}', 'update')->name('books.update');
+        Route::delete('/books/{book}', 'destroy')->name('books.destroy');
+    });
 });
 
 Route::group(['middleware' => 'cekopd'], function () {

@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\SaranaPrasarana;
 use App\Models\User;
-use App\Models\Buku;
+use App\Models\Book;
 
 class DashboardController extends Controller
 {
@@ -16,7 +16,7 @@ class DashboardController extends Controller
     public function index()
     {
         $user=User::count();
-        $buku=Buku::count();
+        $buku=Book::count();
         $sarana=SaranaPrasarana::count();
         return view('admin.dashboard',compact('user','sarana','buku'));
     }
